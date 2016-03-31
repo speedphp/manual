@@ -62,7 +62,7 @@
 
 Nginx现在非常流行，大多数时候已经替代了Apache的地位。
 
-
+> 待编写
 
 **新浪SAE平台**
 
@@ -141,7 +141,7 @@ url()函数有三个参数：$c, $a, $param
 开启伪静态之后，会根据rewrite配置而定URL的生成方式。
 
 配置 | 控制器内使用url()函数 | 模板内使用 | 显示结果 | 指向控制器/方法（或 模块/控制器/方法） | GET参数
----|---|---|---|---
+---|---|---|---|---|---
 'index.html' => 'main/index' | url("main", "index"); | <{url c="main" a="index"}> | /index.html | main/index | -
 '123.json' => 'view/number' | url("view", "number"); | <{url c="view" a="number"}> | /123.json | view/number | -
 'admin/index.html' => 'admin/main/index' | url("admin/main", "index"); | <{url c="admin/main" a="index"}> | /admin/index.html | admin/main/index | -
