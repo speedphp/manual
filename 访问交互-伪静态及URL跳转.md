@@ -62,7 +62,18 @@
 
 Nginx现在非常流行，大多数时候已经替代了Apache的地位。
 
-> 待编写
+Nginx需要配置当前站点的配置文件，如下：
+
+	location / {
+		if (!-f $request_filename){
+			rewrite (.*) /index.php;
+		}
+	}
+	location ^~ /protected {
+		deny all;
+	}
+
+> 一般当前站点的配置文件会存储在/etc/nginx/sites-available/目录下面，以站点域名为名称的conf文件。
 
 **新浪SAE平台**
 
