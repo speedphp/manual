@@ -18,6 +18,7 @@ SpeedPHP是一个以快速学习为基础的PHP框架，因此不仅在程序的
 
 至此，您的sp框架已经正常运行了，您将可以在这里开始您的学习和使用。
 
-> sp框架的推荐环境为Apache2 + PHP5 + MySQL5。本机服务器软件推荐使用XAMPP（https://www.apachefriends.org/zh_cn/index.html）。
+> sp框架的推荐环境为Apache2 + PHP5 + MySQL5。本机服务器软件推荐使用XAMPP（ https://www.apachefriends.org/zh_cn/index.html ）。
+
 
 
