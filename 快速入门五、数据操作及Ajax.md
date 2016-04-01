@@ -38,7 +38,7 @@
         function actionShow(){
             // 把提交的upid参数，作为值来构造一个查询条件数组，
             // 条件是：把id字段中等于提交upid参数值的记录查询出来
-            $condition = array("id" => $_GET["upid"]);
+            $condition = array("id" => arg("upid"));
             $guestbook = new Model("guestbook");
             // 通过find()方法，按条件数据进行查询，
             // find返回结果是对应记录的一维数组
@@ -57,7 +57,7 @@
 - 这里是ViewController类，跟MainController一样，它继承于BaseController类，而且类的名字跟文件名是一样的。
 - ViewController类里面的方法叫actionShow()，action开头的方法是可以被浏览器访问到的。actionShow()是执行这块操作的主体代码块。
 - actionShow()方法开始我们把提交上来的参数upid，作为值构造成了一个查询条件的数组，数组名称是$condition。
-- $_GET["upid"]代表获取浏览器提交上来upid的参数，跟之前教程里面的$_POST差不多。区别在于一般$_GET用于URL带参数或者是Ajax请求，而$_POST主要是表单提交。
+- arg("upid")代表获取浏览器提交上来upid的参数。
 - 继续实例化guestbook表，然后调用find()方法，用$condition这个条件数组作为参数输入。
 - 取得find()方法的结果$result，并且用dump()进行调试输出观察。
 
@@ -90,7 +90,7 @@ Model类的find()方法，指的是查询一条符合条件的记录，返回的
         function actionShow(){
             // 把提交的upid参数，作为值来构造一个查询条件数组，
             // 条件是：把id字段中等于提交upid参数值的记录查询出来
-            $condition = array("id" => $_GET["upid"]);
+            $condition = array("id" => arg("upid"));
             $guestbook = new Model("guestbook");
             // 通过find()方法，按条件数据进行查询，
             // find返回结果是对应记录的一维数组
@@ -209,7 +209,7 @@ Model类的find()方法，指的是查询一条符合条件的记录，返回的
 
 	function actionDig(){
 		// 同样的，首先是根据提交参数确定条件
-		$condition = array("id" => $_GET["upid"]);
+		$condition = array("id" => arg("upid"));
 		$guestbook = new Model("guestbook");
 		// 先查出当前记录的点赞数是多少
 		$result = $guestbook->find($condition);
@@ -298,7 +298,7 @@ JS函数showmsg()里面也要增加：
 
 	function actionDel(){
 		// 同样的，首先是根据提交参数确定条件
-		$condition = array("id" => $_GET["upid"]);
+		$condition = array("id" => arg("upid"));
 		$guestbook = new Model("guestbook");
 		
 		// 直接返回结果，实际上这个结果是被忽略的
@@ -378,7 +378,7 @@ findAll()方法有四个参数，依次是$conditions，$sort，$fields，$limit
 
 	function actionIndex(){
 		// 接收页码参数
-		$page = empty($_GET["p"]) ? 1 : (int)$_GET["p"];
+		$page = (int)arg("p", 1);
 		
 		// 实例化一个guestbook的模型类
 		$guestbook = new Model("guestbook");
@@ -397,8 +397,8 @@ findAll()方法有四个参数，依次是$conditions，$sort，$fields，$limit
 
 **页码**
 
-- 接收页码$page，我们用了php的empty()函数和三元运算符，意思是当$_GET["p"]为空时，$page=1；如果$_GET["p"]不为空，那么$page就是$_GET["p"]
-- (int)$_GET["p"]的意思是强制将p参数转换成数字，保证数据库安全。
+- 接收页码$page，我们用了arg("p", 1);后面参数1是代表如果p不存在，则返回1.
+- (int)arg("p", 1)的意思是强制将p参数转换成数字，保证数据库安全。
 
 **findAll**
 

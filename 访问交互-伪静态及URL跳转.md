@@ -119,12 +119,12 @@ sp框架的伪静态配置，在protected/config.php文件里面，大概是这�
 使用&lt;c&gt;，&lt;a&gt; | '&lt;c&gt;_&lt;a&gt;.html' => '&lt;c&gt;/&lt;a&gt;' | /控制器_方法.html | 控制器/方法 | -
 使用&lt;m&gt;，&lt;c&gt;，&lt;a&gt; | '&lt;m&gt;/&lt;c&gt;_&lt;a&gt;.html' => '&lt;m&gt;/&lt;c&gt;/&lt;a&gt;' | /模块/控制器_方法.html | 模块/控制器/方法 | -
 使用&lt;m&gt;，&lt;c&gt;，&lt;a&gt;，固定部分URL | 'user-&lt;a&gt;.html' => 'user/&lt;a&gt;' | /user-方法.html | user/方法 | -
-使用参数 | 'blog-&lt;id&gt;.do' => 'user/blog' | /blog-9527.do | user/blog | $_GET["id"] = 9527
-使用参数 | 'admin/user/&lt;username&gt;' => 'admin/user/detail' | /admin/user/jake | admin/user/detail | $_GET["username"] = "jake"
-使用参数 | 'u/&lt;uid&gt;/album.html' =&gt; 'user/album', | /u/123/album.html | user/album | $_GET["uid"] = 123
-使用参数 | 'page-&lt;username&gt;/&lt;tid&gt;' =&gt; 'page/view', | /page-jake/10086 | page/view | $_GET["username"] = 'jake'，$_GET["tid"] = 10086
-泛域名 | 'http://&lt;username&gt;.speedphp.com/' =&gt; 'main/index' | http://jake.speedphp.com | main/index | $_GET["username"] = 'jake'
-泛域名 | 'http://&lt;shopname&gt;.shop.speedphp.com/article-&lt;id&gt;.html' =&gt; 'article/show' | http://ak47.shop.speedphp.com/article-520.html | article/show | $_GET["shopname"] = 'ak47'，$_GET["id"] = 520
+使用参数 | 'blog-&lt;id&gt;.do' => 'user/blog' | /blog-9527.do | user/blog | arg("id") = 9527
+使用参数 | 'admin/user/&lt;username&gt;' => 'admin/user/detail' | /admin/user/jake | admin/user/detail | arg("username") = "jake"
+使用参数 | 'u/&lt;uid&gt;/album.html' =&gt; 'user/album', | /u/123/album.html | user/album | arg("uid") = 123
+使用参数 | 'page-&lt;username&gt;/&lt;tid&gt;' =&gt; 'page/view', | /page-jake/10086 | page/view | arg("username") = 'jake'，arg("tid") = 10086
+泛域名 | 'http://&lt;username&gt;.speedphp.com/' =&gt; 'main/index' | http://jake.speedphp.com | main/index | arg("username") = 'jake'
+泛域名 | 'http://&lt;shopname&gt;.shop.speedphp.com/article-&lt;id&gt;.html' =&gt; 'article/show' | http://ak47.shop.speedphp.com/article-520.html | article/show | arg("shopname") = 'ak47'，arg("id") = 520
 
 ###四、URL地址函数
 
@@ -159,15 +159,15 @@ url()函数有三个参数：$c, $a, $param
 '&lt;c&gt;_&lt;a&gt;.html' => '&lt;c&gt;/&lt;a&gt;' | url("mycontrol", "myaction"); | <{url c="mycontrol" a="myaction"}> |  /mycontrol_myaction.html | mycontrol/myaction | -
 '&lt;m&gt;/&lt;c&gt;_&lt;a&gt;.html' => '&lt;m&gt;/&lt;c&gt;/&lt;a&gt;' | url("mod/mycontrol", "myaction"); | <{url c="mod/mycontrol" a="myaction"}> |  /mod/mycontrol_myaction.html | mod/mycontrol/myaction | -
 'user-&lt;a&gt;.html' => 'user/&lt;a&gt;'| url("user", "myaction"); | <{url c="user" a="myaction"}> | /user-myaction.html | user/myaction | -
-'blog-&lt;id&gt;.do' => 'user/blog'| url("user", "blog", array("id"=>9527)); | <{url c="user" a="blog" id="9527"}>  | /blog-9527.do | user/blog | $_GET["id"] = 9527
-'blog-&lt;id&gt;.do' => 'user/blog'| url("user", "blog", array("page"=>2, "id"=>9527)); | <{url c="user" a="blog" page="2" id="9527"}>  | /blog-9527.do**?page=2** | user/blog | $_GET["id"] = 9527, **$_GET["page"] = 2**
-'admin/user/&lt;username&gt;' => 'admin/user/detail'| url("admin/user", "detail", array("username"=>"jake")); | <{url c="admin/user" a="detail" username="jake"}> | /admin/user/jake | admin/user/detail | $_GET["username"] = "jake"
-'u/&lt;uid&gt;/album.html' =&gt; 'user/album', | url("user", "album", array("uid"=>123)); | <{url c="user" a="album" uid="123"}>  |/u/123/album.html | user/album | $_GET["uid"] = 123
-'u/&lt;uid&gt;/album.html' =&gt; 'user/album', | url("user", "album", array("uid"=>123, "sort"=>"2")); | <{url c="user" a="album" uid="123" sort="2"}>  |/u/123/album.html?sort=2 | user/album | $_GET["uid"] = 123, $_GET["sort"] = 2
-'page-&lt;username&gt;/&lt;tid&gt;' =&gt; 'page/view', | url("page", "view", array("username"=>"jake", "tid"=>"10086")); | <{url c="user" a="album" username="jake" tid="10086"}>| /page-jake/10086 | page/view | $_GET["username"] = 'jake'，$_GET["tid"] = 10086
-'http://&lt;username&gt;.speedphp.com/' =&gt; 'main/index' | url("main", "index", array("username"=>"jake")); | <{url c="main" a="index" username="jake"}> | http://jake.speedphp.com | main/index | $_GET["username"] = 'jake'
-'http://&lt;shopname&gt;.shop.speedphp.com/article-&lt;id&gt;.html' =&gt;'article/show'| url("article", "showindex", array("shopname"=>"ak47", "id"=>520)); | <{url c="article" a="show" shopname="ak47" id="520"}> | http://ak47.shop.speedphp.com/article-520.html | article/show | $_GET["shopname"] = 'ak47'，$_GET["id"] = 520
-'http://&lt;shopname&gt;.shop.speedphp.com/article-&lt;id&gt;.html' =&gt;'article/show'| url("article", "showindex", array("shopname"=>"ak47", "id"=>520, "page"=>2)); | <{url c="article" a="show" shopname="ak47" id="520" page="2"}> | http://ak47.shop.speedphp.com/article-520.html?page=2 | article/show | $_GET["shopname"] = 'ak47'，$_GET["id"] = 520, $_GET["page"] = 2
+'blog-&lt;id&gt;.do' => 'user/blog'| url("user", "blog", array("id"=>9527)); | <{url c="user" a="blog" id="9527"}>  | /blog-9527.do | user/blog | arg("id") = 9527
+'blog-&lt;id&gt;.do' => 'user/blog'| url("user", "blog", array("page"=>2, "id"=>9527)); | <{url c="user" a="blog" page="2" id="9527"}>  | /blog-9527.do**?page=2** | user/blog | arg("id") = 9527, **arg("page") = 2**
+'admin/user/&lt;username&gt;' => 'admin/user/detail'| url("admin/user", "detail", array("username"=>"jake")); | <{url c="admin/user" a="detail" username="jake"}> | /admin/user/jake | admin/user/detail | arg("username") = "jake"
+'u/&lt;uid&gt;/album.html' =&gt; 'user/album', | url("user", "album", array("uid"=>123)); | <{url c="user" a="album" uid="123"}>  |/u/123/album.html | user/album | arg("uid") = 123
+'u/&lt;uid&gt;/album.html' =&gt; 'user/album', | url("user", "album", array("uid"=>123, "sort"=>"2")); | <{url c="user" a="album" uid="123" sort="2"}>  |/u/123/album.html?sort=2 | user/album | arg("uid") = 123, arg("sort") = 2
+'page-&lt;username&gt;/&lt;tid&gt;' =&gt; 'page/view', | url("page", "view", array("username"=>"jake", "tid"=>"10086")); | <{url c="user" a="album" username="jake" tid="10086"}>| /page-jake/10086 | page/view | arg("username") = 'jake'，arg("tid") = 10086
+'http://&lt;username&gt;.speedphp.com/' =&gt; 'main/index' | url("main", "index", array("username"=>"jake")); | <{url c="main" a="index" username="jake"}> | http://jake.speedphp.com | main/index | arg("username") = 'jake'
+'http://&lt;shopname&gt;.shop.speedphp.com/article-&lt;id&gt;.html' =&gt;'article/show'| url("article", "showindex", array("shopname"=>"ak47", "id"=>520)); | <{url c="article" a="show" shopname="ak47" id="520"}> | http://ak47.shop.speedphp.com/article-520.html | article/show | arg("shopname") = 'ak47'，arg("id") = 520
+'http://&lt;shopname&gt;.shop.speedphp.com/article-&lt;id&gt;.html' =&gt;'article/show'| url("article", "showindex", array("shopname"=>"ak47", "id"=>520, "page"=>2)); | <{url c="article" a="show" shopname="ak47" id="520" page="2"}> | http://ak47.shop.speedphp.com/article-520.html?page=2 | article/show | arg("shopname") = 'ak47'，arg("id") = 520, arg("page") = 2
 
 这里注意两个问题：
 
