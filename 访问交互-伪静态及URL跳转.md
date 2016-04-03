@@ -65,7 +65,7 @@ Nginx现在非常流行，大多数时候已经替代了Apache的地位。
 Nginx需要配置当前站点的配置文件，如下：
 
 	location / {
-		if (!-f $request_filename){
+		if (!-e $request_filename){
 			rewrite (.*) /index.php;
 		}
 	}
