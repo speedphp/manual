@@ -1,3 +1,7 @@
+##框架中session／cookie的使用
+
+**session**
+
 session的作用主要在保存会话信息，在访问者浏览网站的期间，对访问者相关的信息进行记录，当浏览器关闭后，会话结束，session数据也就消失了。
 
 PHP框架中session是一个数组，可以通过$_SESSION['key'] = $value的方式对session赋值。如：
