@@ -37,7 +37,7 @@ http://localhost/index.php?m=admin&c=main&a=index
 
 那么就是进入admin目录的MainController的actionIndex()方法。
 
-当使用了伪静态，在路由规则上就是<m>来指代控制器名称。
+当使用了伪静态，在路由规则上就是&lt;m&gt;来指代控制器名称。
 
 具体模块的伪静态规则，请参考《[伪静态及URL跳转](访问交互-伪静态及URL跳转.md)》一章。
 
