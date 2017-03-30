@@ -6,7 +6,7 @@ SpeedPHP是一款全功能的国产PHP框架应用系统，速度飞快，上手
 
 [1. 开始使用SpeedPHP](快速入门一、开始使用SpeedPHP.md)
 
-[2. Hello World](快速入门二、Hello World.md)
+[2. Hello World](快速入门二、Hello%20World.md)
 
 [3. 理解MVC](快速入门三、理解MVC.md)
 
