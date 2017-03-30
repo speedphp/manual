@@ -1,4 +1,4 @@
-##快速入门二、Hello World
+## 快速入门二、Hello World
 
 许多编程语言都以“Hello World”这个经典的程序为开始，我们也可以从它来开始我们的sp之旅。以下，本章将介绍基于SpeedPHP的“Hello World”程序，同时介绍了sp框架基础程序的写法。
 

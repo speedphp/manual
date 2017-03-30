@@ -1,4 +1,4 @@
-##使用frameset
+## 使用frameset
 
 在许多应用程序内，尤其是“后台”类型的应用程序，很多时候都会用到frameset，也就是HTML的框架页面。
 

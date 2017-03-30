@@ -1,10 +1,10 @@
-##伪静态配置及URL跳转
+## 伪静态配置及URL跳转
 
 本章我们会讲解伪静态的配置，还有URL构造的方法等相关内容。
 
 > 新版的sp框架，伪静态功能是内置支持的。
 
-###一、特色
+### 一、特色
 
 在不到80行代码里面，实现了功能强大的php伪静态路由功能。（包括伪静态路由和url产生）
 精简的代码带来非常高的执行效率，对比旧版的UrlRewrite扩展速度上有三倍的提升。
@@ -18,7 +18,7 @@
 - 规则更简单，更直观，更容易配置了。
 - 通过url()函数即可构造URL地址。
 
-###二、服务器配置
+### 二、服务器配置
 
 一般初学者使用伪静态时，首先遇到的问题是产生“404找不到页面”的情况。这情况通常都是因为没有正确配置服务器的原因。
 
@@ -88,7 +88,7 @@ config.yaml是SAE的配置文件，以下是伪静态的实例：
     - rewrite: if (!-d && !-f) goto "/index.php?%{QUERY_STRING}"
     - hostaccess: if (%{REQUEST_URI} ~ "/protected/") deny "all"
 
-###三、框架伪静态配置
+### 三、框架伪静态配置
 
 sp框架的伪静态配置，在protected/config.php文件里面，大概是这样：
 
@@ -128,7 +128,7 @@ sp框架的伪静态配置，在protected/config.php文件里面，大概是这�
 泛域名 | 'http://&lt;username&gt;.speedphp.com/' =&gt; 'main/index' | http://jake.speedphp.com | main/index | arg("username") = 'jake'
 泛域名 | 'http://&lt;shopname&gt;.shop.speedphp.com/article-&lt;id&gt;.html' =&gt; 'article/show' | http://ak47.shop.speedphp.com/article-520.html | article/show | arg("shopname") = 'ak47'，arg("id") = 520
 
-###四、URL地址函数
+### 四、URL地址函数
 
 当配置好上述的规则后，我们可以通过url()函数，来生成URL地址。
 
