@@ -110,7 +110,7 @@ sp框架的伪静态配置，在protected/config.php文件里面，大概是这�
 1. &lt;m&gt;&lt;c&gt;&lt;a&gt;分别指代modules，controller，action。
 2. 其他的<单词>，都是_GET的参数名称。
 3. **越是明确指向的URL配置，越要放前面。比如说'admin/index.html'，要放在'admin/&lt;c&gt;_&lt;a&gt;.html'的前面，因为'admin/index.html'是明确的。而'&lt;c&gt;/&lt;a&gt;'和'/'就被放到最后了**。
-4. 如果是'admin/&lt;c&gt;_&lt;a&gt;.html'和'admin/&lt;c&gt;_&lt;a&gt;_&lt;username&gt;.html'，那么就应该是'admin/&lt;c&gt;_&lt;a&gt;_&lt;username&gt;.html'**在前面**，因为它更明确指向有参数username的地址。
+4. 如果是'admin/&lt;c&gt;\_&lt;a&gt;.html'和'admin/&lt;c&gt;\_&lt;a&gt;\_&lt;username&gt;.html'，那么就应该是'admin/&lt;c&gt;\_&lt;a&gt;\_&lt;username&gt;.html'**在前面**，因为它更明确指向有参数username的地址。
 
 我们来看看各种配置对应表：
 
